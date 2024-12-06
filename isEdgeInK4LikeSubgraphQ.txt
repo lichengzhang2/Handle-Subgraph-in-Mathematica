@@ -1,0 +1,30 @@
+isEdgeInK4LikeSubgraphQ[graph_, edge_] := 
+ Module[{commonNeighbors, v1, v2, adv1, adv2, 
+   inducedSubgraph},(*Extract vertices connected by the edge*)
+  v1 = First[edge]; v2 = Last[edge];
+  (*Get the neighbors of each vertex*)
+  adv1 = AdjacencyList[graph, v1];
+  adv2 = AdjacencyList[graph, v2];
+  (*Find the common neighbors of v1 and v2*)
+  commonNeighbors = Intersection[adv1, adv2];
+  If[Length[commonNeighbors] >= 
+    2,(*Create an induced subgraph of the common neighbors*)
+   inducedSubgraph = Subgraph[graph, commonNeighbors];
+   (*Check if the induced subgraph contains at least one edge*)
+   If[EdgeCount[inducedSubgraph] > 0, 
+    True,(*Subgraph contains at least one edge*)
+    False (*No edge in the induced subgraph*)], 
+   False (*Less than 2 common neighbors*)]]
+
+(*Function to check if all edges in the graph satisfy the K4-like \
+condition*)
+edgesInK4LikeSubgraphQ[graph_] := 
+ Module[{edges, i, result},(*Get all edges of the graph*)
+  edges = EdgeList[graph];
+  (*Loop over all edges*)
+  For[i = 1, i <= Length[edges], 
+   i++,(*Check if the edge satisfies the K4-subgraph condition*)
+   result = isEdgeInK4LikeSubgraphQ[graph, edges[[i]]];
+   (*If any edge does not satisfy the condition,
+   return False immediately*)If[result === False, Return[False]];];
+  (*If all edges satisfy the condition,return True*)True]
