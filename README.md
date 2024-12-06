@@ -1,2 +1,3 @@
+## Comments:
 
-Comments: keSubgraphQ.txt : Test whether an edge of a graph is part of a subgraph that is isomorphic to $K_4$
+ keSubgraphQ.txt : Test whether an edge of a graph is part of a subgraph that is isomorphic to $K_4$
