@@ -1,3 +1,3 @@
 ## Comments:
 
-isEdgeInK4LikeSubgraphQ.txt : Test whether an edge of a graph is part of a subgraph that is isomorphic to $K_4$
+isEdgeInK4SubgraphQ.txt : Test whether an edge of a graph is part of a subgraph that is isomorphic to $K_4$
