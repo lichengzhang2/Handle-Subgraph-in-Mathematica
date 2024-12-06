@@ -1,4 +1,4 @@
-isEdgeInK4LikeSubgraphQ[graph_, edge_] := 
+isEdgeInK4SubgraphQ[graph_, edge_] := 
  Module[{commonNeighbors, v1, v2, adv1, adv2, 
    inducedSubgraph},(*Extract vertices connected by the edge*)
   v1 = First[edge]; v2 = Last[edge];
@@ -18,7 +18,7 @@ isEdgeInK4LikeSubgraphQ[graph_, edge_] :=
 
 (*Function to check if all edges in the graph satisfy the K4-like \
 condition*)
-edgesInK4LikeSubgraphQ[graph_] := 
+edgesInK4SubgraphQ[graph_] := 
  Module[{edges, i, result},(*Get all edges of the graph*)
   edges = EdgeList[graph];
   (*Loop over all edges*)
