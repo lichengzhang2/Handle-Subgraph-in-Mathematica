@@ -6,5 +6,5 @@ Then
 
 ```
 edgesInK4SubgraphQ[graph_] := 
-  AllTrue[EdgeList[graph], isEdgeInK4LikeSubgraphQ[graph, #] &]
+  AllTrue[EdgeList[graph], isEdgeInK4SubgraphQ[graph, #] &]
 ```
